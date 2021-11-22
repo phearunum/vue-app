@@ -1,19 +1,12 @@
 <template>
-   <div id="app"></div>
-</template>
-<template >
-   <v-app id="app" >
-      <template v-if="!$route.path.includes('login')">
-    
-          <v-app id="inspire">
+  <v-app id="inspire">
    <v-navigation-drawer 
    v-model="drawer"
    app
-   dark class="primary lighten-3"
    >
-      <v-list-item >
-        <v-list-item-content dark color="primary">
-          <v-list-item-title class="text-h6" dark color="primary">
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="text-h6">
             IG GROUP
           </v-list-item-title>
           <v-list-item-subtitle>
@@ -57,13 +50,6 @@
       <appfooter v-if="!['login', 'register'].includes($route.name)"/>
     </v-main>
   </v-app>
-      </template>
-      <v-content>
-         <keep-alive :include="['Login']">
-            <router-view></router-view>
-         </keep-alive>
-      </v-content>
-   </v-app>
 </template>
 
 <script>
@@ -78,8 +64,3 @@
     }),
   }
 </script>
-
-
-
-
-<style></style>
