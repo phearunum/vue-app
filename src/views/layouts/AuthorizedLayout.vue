@@ -14,9 +14,7 @@
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
-
       <v-divider></v-divider>
-
       <v-list
         dense
         nav
@@ -57,7 +55,7 @@
     data: () => ({ drawer: null,
     items: [
           { title: 'Dashboard', icon: 'mdi-view-dashboard' ,to:'/'},
-          { title: 'Photos', icon: 'mdi-image' ,to:'/photo' },
+          { title: 'Sale', icon: 'mdi-image' ,to:'/sale'},
           { title: 'About', icon: 'mdi-help-box', to:'/about'},
           { title: 'Logout', icon: 'mdi-arrow', to:'/login'},
         ],

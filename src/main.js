@@ -7,7 +7,9 @@ import 'vuetify/dist/vuetify.min.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(vuetify, {
   theme: {
@@ -22,6 +24,9 @@ Vue.use(vuetify, {
     }
   }
 });
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
+console.log(store.state)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
@@ -32,4 +37,4 @@ new Vue({
   vuetify,
   render: h => h(App)
 }).$mount('#app')
-router.replace('/login');
+//router.replace('/login');
