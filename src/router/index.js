@@ -5,6 +5,9 @@ import Login from '../views/Login'
 import layoutComponent from '../components/layoutComponent'
 import store from '../store/index'
 import Sale  from '../views/Sale'
+import Order from '../views/sale/Order'
+import Menu from '../views/sale/Menu'
+import Table from '../views/sale/Table'
 
 Vue.use(VueRouter)
 
@@ -30,6 +33,30 @@ const routes = [
     path: '/sale',
     name: 'Sale',
     component: Sale,
+    meta: {
+      sale: true
+    }
+  },
+  {
+    path: '/cart',
+    name: 'Order',
+    component: Order,
+    meta: {
+      sale: true
+    }
+  },
+  {
+    path: '/menu',
+    name: 'Menu',
+    component: Menu,
+    meta: {
+      sale: true
+    }
+  },
+  {
+    path: '/table',
+    name: 'Table',
+    component: Table,
     meta: {
       sale: true
     }

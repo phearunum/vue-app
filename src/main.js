@@ -14,6 +14,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(vuetify, {
   theme: {
      primary: '#263238',
+     dark_mode:'#e5e5e5'
   },
   icons: {
     vue: {
