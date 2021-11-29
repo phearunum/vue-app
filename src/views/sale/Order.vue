@@ -4,16 +4,16 @@
     <div class="container-order">
       <div class="list-sale">
         <div class="lis-sale-header">
-          <div style="float: left; font-weight: 600">#BN:0000000000 / T=01</div>
+          <div style="float: left; font-weight: 600">#BN:0000000000 / T={{table}}</div>
           <div style="float: right; color: orange; font-weight: 600">
             TAKEOUT
           </div>
         </div>
         <div class="list-sale-body" style="margin-top: 10px">
-          <div v-for="n in 10" :key="n">
+          <div v-for="n in cart" :key="n.items.id">
             <div class="order-list" v-if="n % 2 == 1">
-              <div class="qty">{{ n }}</div>
-              <div class="items-name">Griled oyster</div>
+              <div class="qty">{{ n.qty }}</div>
+              <div class="items-name">{{n.items}}</div>
               <div class="items-amount" >
                 ${{ 15.0 }}
               </div>
@@ -23,8 +23,8 @@
               v-else
               style="background-color: #243137 !important"
             >
-              <div class="qty">{{ n }}</div>
-              <div class="items-name">Griled oyster</div>
+              <div class="qty">{{ n.qty }}</div>
+              <div class="items-name">n.items</div>
               <div class="items-amount">${{ 15.0 }}</div>
             </div>
           </div>
@@ -67,6 +67,7 @@
             elevation="2"
             width="50%"
             class="footer-btn"
+            @click="clear_back()"
           >
             <i class="bi bi-arrow-left-square" style="font-size: 1.5rem"></i>
             Hold
@@ -128,6 +129,7 @@
 
 
 <script>
+import store from "../../store/index";
 export default {
   name: "Order",
 
@@ -137,12 +139,24 @@ export default {
       notifications: false,
       sound: true,
       widgets: false,
+      table:store.state.table
      
     };
   },
- 
+   methods:{
+      clear_back(tableNumber){
+          store.state.table=0;
+      }
+  },
   
   clearStore(state) {},
+
+  computed:{
+      cart(){
+          console.log(2)
+          return store.state.cart
+      }
+  }
 };
 </script>
 

@@ -9,7 +9,7 @@
               <v-btn
                 class="mx-2"
                 :input-value="active"
-                active-class="green white--text "
+                active-class="orange white--text "
                 @click="toggle"
                 color="primary"
                 outlined
@@ -122,6 +122,7 @@
                       rounded
                       small
                       style="float: right"
+                      @click="addToCart()"
                     >
                       <i class="bi bi-plus-circle"></i> Order</v-btn
                     >
@@ -140,6 +141,7 @@
 <script>
 export default {
   name: "Menu",
+  prop:["items"],
   data() {
     return {
       dialog: false,
@@ -148,6 +150,15 @@ export default {
       widgets: false,
       isGridView: true,
     };
+  },
+   methods:{
+      addToCart(){
+         this.$store.dispatch('addItemsToCart',{
+             items:this.items,
+             qty:1
+         })
+         console.log(1)
+      }
   },
 
   clearStore(state) {},

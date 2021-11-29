@@ -10,13 +10,14 @@
         :justify="j"
       >
         <v-col v-for="n in 20" :key="n">
-          <v-card class="pa-4" elevation="2">
+          <v-card class="pa-2" elevation="1">
             <v-responsive>
               <v-img
                 src="https://cdn-icons-png.flaticon.com/512/333/333521.png"
                 height="90px"
-                width="150px"
+                width="130px"
                 class="ing-reponsive"
+                @click="open_check(n)"
               ></v-img>
             </v-responsive>
             <v-card-text class="items-name">
@@ -32,21 +33,28 @@
 
 
 <script>
+import store from "../../store/index"
+import router from "../../router/index";
 export default {
   name: "Table",
   data() {
     return {
         justify: [
         'start',
-        'center',
-        'end',
-        'space-around',
-        'space-between',
       ],
     };
   },
-
-  clearStore(state) {},
+  methods:{
+      open_check(tableNumber){
+          store.state.table=tableNumber;
+          console.log(tableNumber)
+      }
+  },
+computed: {
+    table: function() {
+      this.table
+    }
+  }
 };
 </script>
 <style scoped>

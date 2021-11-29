@@ -12,7 +12,7 @@
           @click.stop="drawer = !drawer"
           color="white"
         ></v-app-bar-nav-icon>
-        APP
+        APP 
 
         <v-spacer></v-spacer>
 
@@ -28,8 +28,8 @@
           <v-icon>mdi-dots-vertical</v-icon>
         </v-btn>
       </v-app-bar>
-      <div v-if="table == null">
-         <v-divider></v-divider>
+      <div v-if="(table == 0)">
+        <v-divider></v-divider>
         <Tables />
       </div>
       <div v-else>
@@ -43,10 +43,7 @@
     </div>
     <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list nav dense>
-        <v-list-item-group
-          v-model="group"
-          active-class="deep-purple--text text--accent-4"
-        >
+        <v-list-item-group active-class="deep-purple--text text--accent-4">
           <v-list-item>
             <v-list-item-avatar>
               <v-img
@@ -87,6 +84,8 @@ import Order from "../views/sale/Order.vue";
 import Menu from "../views/sale/Menu.vue";
 import Table from "../views/sale/Table.vue";
 import Navbar from "./sale/Navbar.vue";
+import store from "../store/index";
+import { mapGetters, mapState } from "vuex";
 export default {
   name: "Sale",
   components: {
@@ -95,11 +94,7 @@ export default {
     Tables: Table,
     Navbar: Navbar,
   },
-  watch: {
-    group() {
-      this.drawer = false;
-    },
-  },
+
   data() {
     return {
       dialog: false,
@@ -107,11 +102,17 @@ export default {
       sound: true,
       widgets: false,
       drawer: false,
-      table: null,
     };
   },
-
-  clearStore(state) {},
+  computed: mapState(["table"]),
+  watch: {
+    table: function (old, newdata) {
+      console.log(`is = ${old} , is new ${newdata}`);
+      if ((old = 0)) {
+        this.table = 0;
+      }
+    },
+  },
 };
 </script>
 
